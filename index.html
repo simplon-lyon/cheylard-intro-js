@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Premier Fichier avec du js</title>
+    
+</head>
+<body>
+    <p>bloup</p>
+    <button>Red</button>
+    <input type="number" id="fontSize">
+    <input type="text" id="leTexte" >
+    
+    <script>
+        let maVariable = 'une valeur';
+        
+        let p = document.querySelector('p');
+
+        p.addEventListener('click', function() {
+            p.textContent = maVariable;
+        });
+
+        let btnRed = document.querySelector('button');
+
+        btnRed.onclick = function() {
+            p.style.color = 'red';
+        };
+
+        let inputFont = document.querySelector('#fontSize');
+
+        inputFont.addEventListener('change', function() {
+            p.style.fontSize = this.value + 'px';
+
+        });
+
+        let inputText = document.querySelector('#leTexte');
+
+        inputText.addEventListener('keyup', function() {
+            p.textContent = this.value;
+        });
+
+        let nouvelElement = document.createElement('canvas');
+
+        document.body.appendChild(nouvelElement);
+
+
+        let tableau = ['ga', 'zo','bu','meu'];
+
+        tableau.push('nouvel Element');
+        tableau.splice(2, 1);
+
+        for(let x = 0; x < tableau.length; x++) {
+
+        }
+
+        for(let item of tableau) {
+
+        }
+
+        
+
+        /**
+            1) Créer un bouton que quand on click dessus, ça change 
+            la couleur du paragraphe en rouge
+            2) Créer un input de type number, et faire que quand on 
+            modifie la valeur de l'input (onchange), ça change la taille 
+            du texte du paragraphe (fontSize)
+            3) Créer un input de type text, et faire que quand on tape
+            dedans (onkeyup), ça change le texte du paragraphe par ce
+            qu'il y a dans l'input (input.value)
+            
+        */
+
+    </script>
+</body>
+</html>

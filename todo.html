@@ -10,11 +10,41 @@
     
     <script>
         /*
+
+        https://github.com/simplon-lyon/cheylard-intro-js
+         
             TP Todo liste :
             Faire une todo liste en javascript, avec donc une liste d'item
             string, la possibilité d'ajouter un nouvel item à la liste via
             un input, et à côté de chaque item, une petite croix pour 
             supprimer l'item en question.
+
+            1) Créer une variable avec un tableau de string dedans
+            2) Faire une function ajouter et une fonction supprimer qui
+            viendront modifier ce tableau selon les arguments fournis 
+            (un nouvel item en string pour l'ajout et un index pour la 
+            suppression)
+        Ces deux étapes consitueront notre modèle
+
+            3) Faire le HTML qui contiendra au début juste un input
+            et un bouton ainsi qu'une ul (ou peu importe le type d'élément
+            dans lequel on voudra afficher nos items)
+            4) Faire une fonction de génération du html de la todo list 
+            qui fera une boucle sur notre tableau de string et qui, pour
+            chaque item créera un nouvel élément li, qui aura la valeur
+            actuelle de la boucle comme contenu et qui sera append au ul
+        Cette fonction sera en fait rappeler à chaque fois qu'une
+        modification viendra s'opérer dans le model (un ajout ou une suppression
+        par exemple)
+
+            5) Faire en sorte que les function ajouter et supprimer rappel 
+            la fonction de génération une fois leur action terminée
+            6) Faire en sorte que au click sur le bouton, il prenne la 
+            valeur de l'input et la donne à manger à la fonction ajouter
+            7) Changer la fonction de génération pour qu'elle rajoute à chaque
+            li un élément button qui, au click, fera appel à la fonction
+            supprimer
+
 
             
         */

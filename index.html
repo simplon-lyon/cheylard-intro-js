@@ -14,16 +14,43 @@
     <input type="text" id="leTexte" >
     
     <script>
+
+        /*
+        Pour déclarer une variable en JS, on préférera le let, introduit
+        par ES2015, celui ci permet de créer une variable locale 
+        block-scoped (qui n'existera qu'au sein de son bloc de code
+        et de ses enfants, genre si on déclare un let dans un if, il
+        n'existera que dans le if)
+        */
         let maVariable = 'une valeur';
-        
+        /*
+        Pour manipuler le DOM, on utilisera l'objet document, et sur
+        celui ci, on pourra faire un querySelector qui ira nous capturer
+        une balise spécifique du DOM selon un sélecteur CSS donné en 
+        argument.
+        Ici, on récupère le premier élément p de notre page html
+        */
         let p = document.querySelector('p');
 
+        /*
+        Les interaction utilisateurs se feront par des évènements qui
+        pourront être surveillé via des eventListener, on peut en
+        ajouter sur n'importe quel élément (certains events sont propres 
+        à certains types d'éléments) avec un addEventListener qui attend
+        en premier le nom de l'événement en string puis une fonction
+        qui sera exécuter dès que cette événement sera déclencher sur
+        l'élément en question
+        */
         p.addEventListener('click', function() {
+            //Sera déclencher à chaque click sur le paragraphe
+
+            //Sur les objet DOM, on a accès à tous les attributs HTML
+            //dont on peut récupérer et modifier la valeur à la volée
             p.textContent = maVariable;
         });
 
         let btnRed = document.querySelector('button');
-
+        //Autre manière, moins modulable, de rajouter un event
         btnRed.onclick = function() {
             p.style.color = 'red';
         };
@@ -41,20 +68,32 @@
             p.textContent = this.value;
         });
 
+        /*
+        Pour créer un nouvel élément, on utilise la méthode createElement
+        du document qui attend le type d'élément en argument.
+        Une fois cette argument créer, on peut modifier tous ses attributs
+        et autre, il faudra juste penser à l'append à un autre élément 
+        pour que celui ci soit effectivement présent dans le DOM de
+        notre page
+        */
         let nouvelElement = document.createElement('canvas');
-
+        //le append en question
         document.body.appendChild(nouvelElement);
 
 
         let tableau = ['ga', 'zo','bu','meu'];
-
+        //Ajoute un nouvel élément en fin de tableau
         tableau.push('nouvel Element');
+        //Supprime autant  d'élément qu'indiquer en deuxième argument
+        // à la position fournie par le premier argument
         tableau.splice(2, 1);
-
+        //Une boucle for classique avec compteur et tout pour itérer sur
+        //un tableau ou autre
         for(let x = 0; x < tableau.length; x++) {
 
         }
-
+        //Une boucle for-each pour itérer spécifiquement sur des tableau
+        //ne fournis pas l'index des items
         for(let item of tableau) {
 
         }

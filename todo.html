@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+
+    <ul id="todos"></ul>
+    <input type="text" id="newTodo">
+    <button id="btnAdd">Add</button>
     
     <script>
         /*
@@ -52,8 +56,60 @@
             model est mis à jour avec la nouvelle valeur
             
         */
-    
-    
+
+        /**
+        Modèle de données
+        */
+        let todos = ['ga', 'zo','bu','meu'];
+
+        function addTodo(todo) {
+            todos.push(todo);
+        }
+
+        function removeTodo(index) {
+            todos.splice(index, 1);
+        }
+
+        /**
+        Contrôleur
+        */
+        function add(todo) {
+            addTodo(todo);
+            displayTodos();
+        }
+        function remove(index) {
+            removeTodo(index);
+            displayTodos();
+        }
+
+        /**
+        Vue
+        */
+        function displayTodos() {
+            let ul = document.querySelector('#todos');
+            ul.innerHTML = '';
+            for(let x = 0; x < todos.length; x++) {
+                let li = document.createElement('li');
+                li.textContent = todos[x];
+
+                let btnSuppr = document.createElement('button');
+                btnSuppr.textContent = 'X';
+                btnSuppr.addEventListener('click', function() {
+                    remove(x);
+                });
+                li.appendChild(btnSuppr);
+                ul.appendChild(li);
+            }
+        }
+
+        document.querySelector('#btnAdd')
+        .addEventListener('click', function(){
+            add(document.querySelector('#newTodo').value);
+        });
+        
+        displayTodos();
+        
+        
     </script>
 </body>
 </html>
